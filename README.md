@@ -42,3 +42,13 @@ Create the cron job:
 ```
 * * * * * cd /home/pi/apps/sms-to-telegram && ./run.sh 2>&1 | tee -a sms.log
 ```
+
+To make the Huawei K5160 modem work with this script, create the file `/etc/usb_modeswitch.d/12d1:1f1e`:
+
+```
+# Vodafone / Huawei K5160
+TargetVendor=0x12d1
+TargetProductList="157f,1592"
+MessageContent=55534243123456780000000000000011063000000100000000000000000000
+NoMBIMCheck=1
+```
